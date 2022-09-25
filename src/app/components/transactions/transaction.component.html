@@ -1,0 +1,35 @@
+<div class="py-4 px-6 flex items-s justify-center flex-row mb-2">
+  <button
+    class="border py-2 px-4 rounded"
+    (click)="searchKey='income'"
+  ><span routerLinkActive="text-rose-600" class="">Income</span>
+  </button>
+  <button
+    class="border py-2 px-4 rounded"
+    (click)="searchKey='outcome'"
+  >Outcome
+  </button>
+  <button
+    class="border py-2 px-4 rounded"
+    (click)="searchKey='loan'"
+  >Loan
+  </button>
+  <button
+    class="border py-2 px-4 rounded"
+    (click)="searchKey='investment'"
+  >Investment
+  </button>
+</div>
+<div class="py-4 px-6 border rounded flex items-center flex-col mb-2">
+  <table id="transactions">
+    <tr class="text-center">
+      <th class="text-center">Name</th>
+      <th>Amount</th>
+    </tr>
+    <tr *ngFor="let transaction of trData | filterTipe: searchKey">
+      <td class="py-2 px-3 text-center">{{transaction.name.first}}</td>
+      <td>{{transaction.company}}</td>
+    </tr>
+  </table>
+</div>
+
